@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Welcome from './components/Welcome';
+import Home from './components/Home';
+import Login from './components/Login';
+import Register from './components/Register';
+import { ProtectedRoute } from './components/ProtectedRoutes';
+import { AuthProvider } from './contexts/authContex';
+import './index.css';
+
+/* https://v1.tailwindcss.com/components/buttons */
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			{/* Aletrs Modal */}
+			<ToastContainer position="top-center" />
+			{/* Aletrs Modal */}
+
+			{/* Components */}
+			<div className="h-screen flex">
+				<AuthProvider>
+					<Routes>
+						<Route path="/" element={<Welcome />} />
+						<Route
+							path="/home"
+							element={
+								<ProtectedRoute>
+									<Home />
+								</ProtectedRoute>
+							}
+						/>
+						<Route path="/login" element={<Login />} />
+						<Route path="/register" element={<Register />} />
+					</Routes>
+				</AuthProvider>
+			</div>
+			{/* Components */}
+		</>
+	);
 }
 
 export default App;
