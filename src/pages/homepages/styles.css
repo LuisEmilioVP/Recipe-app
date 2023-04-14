@@ -1,0 +1,60 @@
+.container {
+	display: flex;
+	width: 100%;
+	height: 26.875rem;
+	max-width: 75rem;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: auto;
+}
+
+.container .card {
+	width: 310px;
+	height: 380px;
+	border-radius: 0.5rem;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	margin: 1.25rem;
+	text-align: center;
+	transition: all 0.25s;
+}
+
+.container .card:hover {
+	transform: translateY(-0.9375rem);
+	box-shadow: 0 0.9375rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.container .card img {
+	width: 20.625rem;
+	height: 13.75rem;
+}
+
+.container .card h4 {
+	font-weight: 700;
+	font-size: 1.25rem;
+	margin: 1rem;
+}
+
+.felx_recipes {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Favorites */
+.fovorites_wrapper {
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+}
+
+.fovorite_title {
+	font-weight: 700;
+	font-size: 2.1875rem;
+	margin: 0.75rem 0px 0.75rem 0px;
+	margin: 1.25rem 0px;
+}
+
+/* search */
+.search {
+	margin-bottom: 1.875rem;
+}

@@ -25,22 +25,22 @@ export const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
 	const [loading, setLoading] = useState(true);
 
-	//* Registro de usuarios
+	//* User Registration
 	const signup = (email, password) =>
 		createUserWithEmailAndPassword(auth, email, password);
-	//* Logeo de usuarios
+	//* User logging
 	const login = (email, password) =>
 		signInWithEmailAndPassword(auth, email, password);
-	//*Cerrar de usuarios
+	//* User logout
 	const logout = () => signOut(auth);
-	//* Logeo de usuario con Google
+	//* User logging with Google
 	const loginWithGoogle = () => {
 		const googleProvide = new GoogleAuthProvider();
 		return signInWithPopup(auth, googleProvide);
 	};
-	//* Recetear Contraseña
+	//* Enter Password
 	const resetPassword = (email) => sendPasswordResetEmail(auth, email);
-	//*Cargar credenciales de usuarios
+	//* Upload user credentials
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 			setUser(currentUser);

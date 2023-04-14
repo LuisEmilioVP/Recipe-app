@@ -9,8 +9,6 @@ import { ProtectedRoute } from './components/ProtectedRoutes';
 import { AuthProvider } from './contexts/authContex';
 import './index.css';
 
-/* https://v1.tailwindcss.com/components/buttons */
-
 function App() {
 	return (
 		<>
@@ -19,7 +17,7 @@ function App() {
 			{/* Aletrs Modal */}
 
 			{/* Components */}
-			<div className="h-screen flex">
+			<div className="h-screen flex flex-col">
 				<AuthProvider>
 					<Routes>
 						<Route path="/" element={<Welcome />} />

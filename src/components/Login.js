@@ -22,15 +22,15 @@ const Login = () => {
 		setError('');
 		try {
 			await login(user.email, user.password);
-			toast.success('¡Bienvenido a tu app de recetas! 🧆');
+			toast.success('Welcome to your recipe app! 🧆');
 			navigate('/home');
 		} catch (error) {
 			if (error.code === 'auth/user-not-found') {
-				setError(toast.error('¡Este correo no existe! 🥵'));
+				setError(toast.error('This email does not exist! 🥵'));
 			} else if (error.code === 'auth/wrong-password') {
-				setError(toast.error('¡Contraseña invalida! 🥵'));
+				setError(toast.error('Invalid password! 🥵'));
 			} else {
-				setError(toast.error('¡Ha ocurrido un error! 🥵'));
+				setError(toast.error('An error has occurred! 🥵'));
 			}
 			console.log(error.code);
 		}
@@ -39,27 +39,27 @@ const Login = () => {
 	const handleGoogle = async () => {
 		try {
 			await loginWithGoogle();
-			setError(toast.success('¡Bienvenido a tu app de recetas! 🧆'));
+			setError(toast.success('Welcome to your recipe app! 🧆'));
 			navigate('/home');
 		} catch (error) {
-			setError(toast.error('¡Ha ocurrido un error! 🥵'));
+			setError(toast.error('An error has occurred! 🥵'));
 		}
 	};
 
 	const handleResetPassword = async () => {
-		if (!user.email) return toast.warning('Ingresa un Email');
+		if (!user.email) return toast.warning('Enter an Email');
 		try {
 			await resetPassword(user.email);
 			setError(
 				toast.success(
-					'Te hemos enviado un correo para restablecer tu contraseña. ¡Revisa la bandeja de Spam!'
+					'We have sent you an email to reset your password. Check your Spam folder! 📩'
 				)
 			);
 		} catch (error) {
 			if (error.code === 'auth/user-not-found') {
-				setError(toast.error('¡Correo no registrado! 🥵'));
+				setError(toast.error('Unregistered mail! 🥵'));
 			} else {
-				setError(toast.error('¡Ha ocurrido un error! 🥵'));
+				setError(toast.error('An error has occurred!🥵'));
 				console.log(error.message);
 			}
 		}
@@ -82,7 +82,7 @@ const Login = () => {
 						type="email"
 						name="email"
 						id="email"
-						placeholder="ejemplo@je.com"
+						placeholder="example@ex.com"
 						onChange={handleChange}
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 					/>
@@ -93,7 +93,7 @@ const Login = () => {
 						className="block text-gray-700 text-sm font-bold mb-2"
 						htmlFor="password"
 					>
-						Contraseña
+						Password
 					</label>
 					<input
 						type="password"
@@ -107,16 +107,16 @@ const Login = () => {
 
 				<div className="flex flex-col items-center">
 					<button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-						Iniciar Sección
+						Login
 					</button>
 
-					<p className="text-gray-700 my-0.5">¿Aún no tienes cuenta?</p>
+					<p className="text-gray-700 my-0.5">Don't have an account yet?</p>
 
 					<Link
 						to="/register"
 						className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 my-2"
 					>
-						Registrarte ahora 😎
+						Register now 😎
 					</Link>
 
 					<Link
@@ -124,7 +124,7 @@ const Login = () => {
 						className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 my-0.5"
 						onClick={handleResetPassword}
 					>
-						¿Olvidaste tu Contraseña?
+						Forgot your password?
 					</Link>
 				</div>
 			</form>
@@ -141,12 +141,12 @@ const Login = () => {
 					>
 						<path d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"></path>
 					</svg>
-					<span>Inicia Sección con Google</span>
+					<span>Start Google Section</span>
 				</button>
 
 				<Link to="/">
 					<button className="bg-red-700 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full my-3">
-						Cerrar App
+						Close App
 					</button>
 				</Link>
 			</div>

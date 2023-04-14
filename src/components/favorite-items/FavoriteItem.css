@@ -1,0 +1,26 @@
+.Favoritecard {
+	width: 310px;
+	height: 380px;
+	border-radius: 0.5rem;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	margin: 1.25rem;
+	text-align: center;
+	transition: all 0.25s;
+}
+
+.Favoritecard:hover {
+	transform: translateY(-0.9375rem);
+	box-shadow: 0 0.9375rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.Favoritecard img {
+	width: 20.625rem;
+	height: 13.75rem;
+}
+
+.Favoritecard h4 {
+	font-weight: 700;
+	font-size: 1.25rem;
+	margin: 1rem;
+}

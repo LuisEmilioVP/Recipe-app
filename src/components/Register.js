@@ -23,17 +23,17 @@ const Register = () => {
 		setError('');
 		try {
 			await signup(user.email, user.password);
-			toast.success('¡Usuario registrado con éxito! 😃');
+			toast.success('Successfully logged in! 😃');
 			navigate('/home');
 		} catch (error) {
 			if (error.code === 'auth/invalid-email') {
-				setError(toast.error('Correo inválido 🥵'));
+				setError(toast.error('Invalid e-mail 🥵'));
 			} else if (error.code === 'auth/weak-password') {
-				setError(toast.error('La contraseña debe tener más de 6 caracteres 🥵'));
+				setError(toast.error('Password must be longer than 6 characters 🥵'));
 			} else if (error.code === 'auth/email-already-in-use') {
-				setError(toast.error('Este correo ya existe 🥵'));
+				setError(toast.error('This e-mail already exists 🥵'));
 			} else {
-				setError(toast.error('¡Ha ocurrido un error! 🥵'));
+				setError(toast.error('An error has occurred!🥵'));
 			}
 		}
 	};
@@ -55,7 +55,7 @@ const Register = () => {
 						type="email"
 						name="email"
 						id="email"
-						placeholder="ejemplo@je.com"
+						placeholder="example@ex.com"
 						onChange={handleChange}
 						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 					/>
@@ -66,7 +66,7 @@ const Register = () => {
 						className="block text-gray-700 text-sm font-bold mb-2"
 						htmlFor="password"
 					>
-						Contraseña
+						Password
 					</label>
 					<input
 						type="password"
@@ -80,14 +80,14 @@ const Register = () => {
 
 				<div className="flex flex-col items-center">
 					<button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-						Registrar
+						Signup
 					</button>
 
 					<Link
 						to="/login"
 						className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 my-2"
 					>
-						Iniciar Sección
+						Login
 					</Link>
 				</div>
 			</form>
